@@ -13,8 +13,7 @@ SECRET_KEY = "django-insecure-d6#-s0(q^l%89=92kmg!sn5(^)t)f56abx%$3g@_2f1n*$c^p$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['16.171.177.123', '127.0.0.1' ]
 
 # Application definition
 
@@ -68,7 +67,6 @@ WSGI_APPLICATION = "DiscordMain.wsgi.application"
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     "default": {
@@ -83,7 +81,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -102,16 +99,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -126,21 +118,14 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 # DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-# AWS_ACCESS_KEY_ID = 'AKIA6JQ44PLFJNIOHZHI'
-# AWS_SECRET_ACCESS_KEY = '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'
 # AWS_STORAGE_BUCKET_NAME = 's3djangopy'
 # AWS_S3_REGION_NAME = 'eu-north-1'
 # AWS_DEFAULT_ACL = 'public-read'
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 # AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-
 
 # # s3 static storage settings
 # STATIC_LOCATION = 'static'
