@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-d6#-s0(q^l%89=92kmg!sn5(^)t)f56abx%$3g@_2f1n*$c^p$"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['16.171.177.123']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "whitenoise.runserver_nostatic",
     "base.apps.BaseConfig",
+    "storages",
 ]
 
 AUTH_USER_MODEL = 'base.User'
@@ -115,7 +116,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
 MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
@@ -124,19 +124,35 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR / 'static/images'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = 'static/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
+# AWS_ACCESS_KEY_ID = 'AKIA6JQ44PLFJNIOHZHI'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 's3djangopy'
+# AWS_S3_REGION_NAME = 'eu-north-1'
+# AWS_DEFAULT_ACL = 'public-read'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
-AWS_ACCESS_KEY_ID = 'AKIA6JQ44PLFMHSZRHE4'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'zeeshanbucket'
-AWS_S3_SIGNATURE_NAME = 's3v4',
-AWS_S3_REGION_NAME = 'eu-north-1'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL =  None
-AWS_S3_VERIFY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# # s3 static storage settings
+# STATIC_LOCATION = 'static'
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# # Media files
+# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
