@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "base.apps.BaseConfig",
     "storages",
+    "rest_framework",
+    "corsheaders",
 ]
 
 AUTH_USER_MODEL = 'base.User'
@@ -41,6 +43,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "DiscordMain.urls"
@@ -118,8 +121,11 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
 
+CORS_ALLOW_ALL_ORIGINS= True
 
 # DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# AWS_ACCESS_KEY_ID = 'AKIA6JQ44PLFJNIOHZHI'
+# AWS_SECRET_ACCESS_KEY = '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'
 # AWS_STORAGE_BUCKET_NAME = 's3djangopy'
 # AWS_S3_REGION_NAME = 'eu-north-1'
 # AWS_DEFAULT_ACL = 'public-read'
